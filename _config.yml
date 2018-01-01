@@ -1,16 +1,16 @@
 # main text of home
-name: Arti Annaswamy
-bio: 'Data analytics, process improvement, project management, coffee drinking'
+name: Kara Eberle
+bio: 'Voice of Weiss Schnee'
 
 # twitter summary info
-description: A blog about technology and stuff related
+# description: A blog about technology and stuff related
 
 # if it's an external image, update below for true
 # better with square images
 external-image: false
 picture: 'assets/images/profile.jpg'
 
-url: http://artiannaswamy.com
+url: https://github.com/louisjwilliams/kara/
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
@@ -22,20 +22,20 @@ highlighter: rouge
 analytics-google: 'UA-74313908-1'
 
 # if you don't want comments in your posts, set to false
-disqus: artiannaswamy
+# disqus: artiannaswamy
 
 # if you don't have any of social below, comment the line
 # facebook: myfacebook
-twitter: aannasw
+twitter: Kara4tx
 # google: mygoogle
-# instagram: myinstagram
-pinterest: annasw
-linkedin: artiannaswamy
+instagram: Kara4tx
+# pinterest: annasw
+# linkedin: artiannaswamy
 # youtube: myyoutube
 # spotify: myspotify
-github: aannasw
+# github: aannasw
 # medium: medium
-email: hello@artiannaswamy.com
+# email: hello@artiannaswamy.com
 
 authors:
     artiannaswamy:
@@ -56,11 +56,11 @@ width: large
 # paginate_path: "blog/:num/"
 
 # if you don't need projects, comment the *projects* configs below
-projects: true
+projects: false 
 
 # if you don't need about or blog, comment them out below
-about: true
-blog: true
+about: false
+blog: false
 
 # do you want to show the "read time" of the posts?
 read-time: true
