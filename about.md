@@ -4,13 +4,13 @@ layout: page
 ---
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
-<p>I love analyzing data, managing process improvement projects and learning new things. I am Founder/CEO of a data analytics consultancy called 3PM Coffee Break. I've lived all over Southern California in the last 15 years now, loved every minute of it and currently make my home in Orange County.</p>
+<p>I love analyzing data, managing process improvement projects and learning new things. I am Founder/CEO of a data analytics consultancy called 3PM Coffee Break. I've lived all over Southern California in the last 15 years now, loved every minute of it and currently make my home in Burbank.</p>
 
 <p>I grew up in India in a metropolitan town called <a href="https://en.wikipedia.org/wiki/Vadodara" target="_blank">Baroda</a> that had a wonderful small-city feel (then) with big city values.</p>
 
 <p>I moved to the United States as a junior in high school, and except for a year in grad school at University of Illinois at Urbana-Champaign, have happily made my home in various parts of Southern California since.</p>
 
-<p>These days, I work on business-facing data operations, reporting transformation, tech/process change initiatives for Warner Bros. (now Warner Bros. Discovery) Consumer Products.</p>
+<p>These days, I work on business-facing tech/process change initiatives for Warner Bros. (now Warner Bros. Discovery) Consumer Products.</p>
 
 <h2>Skills</h2>
 
