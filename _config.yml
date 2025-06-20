@@ -10,7 +10,7 @@ description: A blog about technology and stuff related
 external-image: false
 picture: 'assets/images/profile.jpg'
 
-url: http://artiannaswamy.com
+url: https://aannasw.github.io
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
