@@ -11,7 +11,7 @@ permalink: reading-list-2017
 
 <h2 class="title">Lessons Learned from the 2016 Reading List Project</h2>
 
-See <a href="//artiannaswamy.com/reading-list-2016" target="_blank">last year's reading list project page</a> for more details.
+See <a href="/reading-list-2016" target="_blank">last year's reading list project page</a> for more details.
 
 For 2017, I hoped to select a list of books with more complex content, still with the aim of covering as wide a range of categories as I can, but a smaller total number.
 

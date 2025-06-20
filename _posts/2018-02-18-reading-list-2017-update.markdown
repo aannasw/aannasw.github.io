@@ -11,8 +11,8 @@ permalink: reading-list-2017-update
 
 <h2 class="title">Previous reading list posts</h2>
 
-- <a href="//artiannaswamy.com/reading-list-2016" target="_blank">2016 Reading List</a>
-- <a href="//artiannaswamy.com/reading-list-2017" target="_blank">2017 Reading List</a>
+- <a href="/reading-list-2016" target="_blank">2016 Reading List</a>
+- <a href="/reading-list-2017" target="_blank">2017 Reading List</a>
 
 ## Index
 - [Reading technology](#newtech)

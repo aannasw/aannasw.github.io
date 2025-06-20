@@ -10,7 +10,7 @@ summary: "Part 2 of a step by step non-coder's guide to setting up a personal si
 permalink: build-a-github-blog-part-2
 ---
 
-Here's Part 1 of this post <//artiannaswamy.com/build-a-github-blog-part-1>
+Here's Part 1 of this post <{{ site.url }}/build-a-github-blog-part-1>
 
 We left off at the point where your site is live, but the theme inhabiting it doesn't have your information.
 

@@ -12,9 +12,9 @@ permalink: reading-list-2018-update
 
 <h2 class="title">Previous reading list posts</h2>
 
-- <a href="//www.artiannaswamy.com/reading-list-2016" target="_blank">2016 Reading List</a>
-- <a href="//www.artiannaswamy.com/reading-list-2017" target="_blank">2017 Reading List</a>
-- <a href="//www.artiannaswamy.com/reading-list-2017-update" target="_blank">Update on 2017 Reading List</a>
+- <a href="/reading-list-2016" target="_blank">2016 Reading List</a>
+- <a href="/reading-list-2017" target="_blank">2017 Reading List</a>
+- <a href="/reading-list-2017-update" target="_blank">Update on 2017 Reading List</a>
 
 ## Index
 - [New in Reading Tech](#newtech)
@@ -27,7 +27,7 @@ permalink: reading-list-2018-update
 <div class="breaker"></div><a id="newtech"></a>
 <h2 class="title">New in Reading Tech</h2>
 
-A few more items that rocked my world with respect to reading. For last year's list, see <a href="//www.artiannaswamy.com/reading-list-2017-update#newtech" target="_blank">New in Reading Tech in 2017</a>.
+A few more items that rocked my world with respect to reading. For last year's list, see <a href="/reading-list-2017-update#newtech" target="_blank">New in Reading Tech in 2017</a>.
 
 
 <h3>The year I discovered Audiobooks</h3>
