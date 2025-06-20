@@ -1,17 +1,10 @@
 <!-- Google Analytics 4 (gtag.js) - Privacy Compliant -->
 <script>
   (function() {
-    console.log('GA SCRIPT: Running analytics check...');
-    var consent = localStorage.getItem('analytics-consent');
-    console.log('GA SCRIPT: Consent value from localStorage is:', consent);
-
     // Check if user has consented to analytics
-    if (consent !== 'true') {
-      console.log('GA SCRIPT: Consent not "true". Halting GA script.');
+    if (localStorage.getItem('analytics-consent') !== 'true') {
       return;
     }
-
-    console.log('GA SCRIPT: Consent is "true". Proceeding to load gtag.js.');
     
     // Dynamically load the GA script
     var script = document.createElement('script');
@@ -25,7 +18,5 @@
     gtag('js', new Date());
 
     gtag('config', '{{ site.analytics-google }}');
-    
-    console.log('GA SCRIPT: gtag.js should be loaded and configured now.');
   })();
 </script>
