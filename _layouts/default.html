@@ -72,7 +72,6 @@ layout: compress
           if (banner) {
             banner.style.display = 'block';
             console.log('Banner shown manually');
-            updateDebugInfo();
           } else {
             console.log('Banner element not found');
           }
@@ -88,16 +87,11 @@ layout: compress
           var bannerStatus = document.getElementById('banner-status');
           var localStorageStatus = document.getElementById('localstorage-status');
           
-          console.log('banner-status element:', bannerStatus);
-          console.log('localStorage-status element:', localStorageStatus);
-          
           if (bannerStatus) {
             var banner = document.getElementById('privacy-consent-banner');
             var status = banner ? 'Banner found' : 'Banner not found';
             bannerStatus.textContent = status;
             console.log('Updated banner status to:', status);
-          } else {
-            console.log('banner-status element not found');
           }
           
           if (localStorageStatus) {
@@ -105,94 +99,25 @@ layout: compress
             var consentText = 'Consent: ' + (consent || 'null');
             localStorageStatus.textContent = consentText;
             console.log('Updated localStorage status to:', consentText);
-          } else {
-            console.log('localStorage-status element not found');
           }
         } catch (e) {
           console.error('Error updating debug info:', e);
         }
       }
 
-      // Initialize when DOM is ready
-      function initPrivacyConsent() {
-        console.log('Privacy consent initialization started');
+      // Simple test function
+      window.testDebug = function() {
+        console.log('testDebug called');
         updateDebugInfo();
-        console.log('Debug info updated');
-      }
+      };
 
-      // Try multiple ways to initialize
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initPrivacyConsent);
-      } else {
-        initPrivacyConsent();
-      }
-
-      // Also try on window load as backup
-      window.addEventListener('load', function() {
-        console.log('Window load event fired');
+      // Initialize
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM loaded - updating debug info');
         updateDebugInfo();
       });
 
-      // Immediate execution as fallback
-      setTimeout(function() {
-        console.log('Timeout fallback executed');
-        updateDebugInfo();
-      }, 100);
-
-      // Test function that can be called manually
-      function testDebug() {
-        console.log('Manual test function called');
-        console.log('All elements with banner-status ID:', document.querySelectorAll('#banner-status'));
-        console.log('All elements with localStorage-status ID:', document.querySelectorAll('#localstorage-status'));
-        updateDebugInfo();
-      }
-
-      // Make test function globally available
-      window.testDebug = testDebug;
-      
-      // Also try to make it available immediately
-      try {
-        console.log('Setting up testDebug function...');
-        window.testDebug = testDebug;
-        console.log('testDebug function should now be available');
-        
-        // Test if it's accessible
-        if (typeof window.testDebug === 'function') {
-          console.log('testDebug function is accessible!');
-        } else {
-          console.log('testDebug function is NOT accessible');
-        }
-      } catch (e) {
-        console.error('Error setting up testDebug:', e);
-      }
-      
-      // Final test
-      console.log('Final check - window.testDebug:', typeof window.testDebug);
-      
-      // Simple test to see if script is working
-      console.log('Script execution test - this should appear in console');
-      
-      // Try to define testDebug in a different way
-      setTimeout(function() {
-        console.log('Timeout test - trying to define testDebug again');
-        try {
-          window.testDebug = function() {
-            console.log('testDebug called from timeout');
-            updateDebugInfo();
-          };
-          console.log('testDebug defined in timeout');
-        } catch (e) {
-          console.error('Error defining testDebug in timeout:', e);
-        }
-      }, 1000);
-      
-      // Simple test function that should definitely work
-      window.simpleTest = function() {
-        console.log('Simple test function works!');
-        alert('JavaScript is working!');
-      };
-      
-      console.log('Simple test function defined:', typeof window.simpleTest);
+      console.log('Script loaded successfully');
     </script>
 
 </body>
