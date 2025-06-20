@@ -12,7 +12,7 @@ permalink: reading-list-2020-update
 
 <h2 class="title">Previous reading list posts</h2>
 
-- <a href="https://artiannaswamy.com/tags/#books" target="_blank">Prior posts on Books</a>
+- <a href="{{ site.url }}/tags/#books" target="_blank">Prior posts on Books</a>
 
 ---
 
