@@ -168,6 +168,23 @@ layout: compress
       
       // Final test
       console.log('Final check - window.testDebug:', typeof window.testDebug);
+      
+      // Simple test to see if script is working
+      console.log('Script execution test - this should appear in console');
+      
+      // Try to define testDebug in a different way
+      setTimeout(function() {
+        console.log('Timeout test - trying to define testDebug again');
+        try {
+          window.testDebug = function() {
+            console.log('testDebug called from timeout');
+            updateDebugInfo();
+          };
+          console.log('testDebug defined in timeout');
+        } catch (e) {
+          console.error('Error defining testDebug in timeout:', e);
+        }
+      }, 1000);
     </script>
 
 </body>
