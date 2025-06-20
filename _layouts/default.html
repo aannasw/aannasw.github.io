@@ -185,6 +185,14 @@ layout: compress
           console.error('Error defining testDebug in timeout:', e);
         }
       }, 1000);
+      
+      // Simple test function that should definitely work
+      window.simpleTest = function() {
+        console.log('Simple test function works!');
+        alert('JavaScript is working!');
+      };
+      
+      console.log('Simple test function defined:', typeof window.simpleTest);
     </script>
 
 </body>
