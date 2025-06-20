@@ -1,94 +1,27 @@
-<!-- Privacy Consent Banner -->
-<div id="privacy-consent-banner" class="privacy-consent-banner" style="display: block; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.95); color: white; z-index: 9999; padding: 1rem; box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);">
-  <div class="privacy-consent-content" style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-    <p style="margin: 0; flex: 1; min-width: 300px; line-height: 1.5;">
-      We use cookies and similar technologies to analyze site traffic and personalize content. 
-      By clicking "Accept", you consent to our use of cookies for analytics purposes. 
-      <a href="/privacy-policy" target="_blank" style="color: #4b0082; text-decoration: underline;">Learn more</a>
-    </p>
-    <div class="privacy-consent-buttons" style="display: flex; gap: 0.5rem; flex-shrink: 0;">
-      <button onclick="setAnalyticsConsent(false)" class="privacy-btn privacy-btn-decline" style="padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9rem; background: transparent; color: white; border: 1px solid #666;">
+<!-- Simple Privacy Consent Banner -->
+<div id="privacy-consent-banner" style="display: block; position: fixed; bottom: 0; left: 0; right: 0; background: #000; color: white; z-index: 99999; padding: 15px; font-family: Arial, sans-serif; font-size: 14px;">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+    <div style="flex: 1; margin-right: 20px;">
+      We use cookies to analyze site traffic. 
+      <a href="/privacy-policy" style="color: #4b0082; text-decoration: underline;">Learn more</a>
+    </div>
+    <div style="display: flex; gap: 10px;">
+      <button onclick="setAnalyticsConsent(false)" style="padding: 8px 16px; background: transparent; color: white; border: 1px solid #666; border-radius: 4px; cursor: pointer;">
         Decline
       </button>
-      <button onclick="setAnalyticsConsent(true)" class="privacy-btn privacy-btn-accept" style="padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9rem; background: #4b0082; color: white;">
+      <button onclick="setAnalyticsConsent(true)" style="padding: 8px 16px; background: #4b0082; color: white; border: none; border-radius: 4px; cursor: pointer;">
         Accept
       </button>
     </div>
   </div>
 </div>
 
-<!-- Test button to manually show banner -->
-<button onclick="showPrivacyBanner()" style="position: fixed; top: 10px; right: 10px; z-index: 10000; padding: 10px; background: red; color: white; border: none; border-radius: 4px; cursor: pointer;">Show Privacy Banner</button>
+<!-- Simple Test Button -->
+<button onclick="showPrivacyBanner()" style="position: fixed; top: 10px; right: 10px; z-index: 100000; padding: 10px; background: red; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px;">Show Banner</button>
 
-<!-- Debug info -->
-<div id="debug-info" style="position: fixed; top: 50px; right: 10px; z-index: 10000; padding: 10px; background: yellow; color: black; border: 1px solid black; font-size: 12px; max-width: 300px;">
-  <strong>Debug Info:</strong><br>
-  <span id="banner-status">Checking...</span><br>
-  <span id="localstorage-status">Checking...</span>
-</div>
-
-<script>
-  // Function to manually show banner for testing
-  function showPrivacyBanner() {
-    console.log('showPrivacyBanner function called');
-    var banner = document.getElementById('privacy-consent-banner');
-    console.log('Banner element:', banner);
-    if (banner) {
-      banner.style.display = 'block';
-      console.log('Banner manually shown');
-      document.getElementById('banner-status').textContent = 'Banner shown manually';
-    } else {
-      console.log('Banner element not found!');
-      document.getElementById('banner-status').textContent = 'Banner element not found!';
-    }
-  }
-
-  // Function to hide banner
-  function hidePrivacyBanner() {
-    var banner = document.getElementById('privacy-consent-banner');
-    if (banner) {
-      banner.style.display = 'none';
-      console.log('Banner hidden');
-    }
-  }
-
-  // Show consent banner if user hasn't made a choice yet
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log('Privacy consent script loaded');
-    
-    var banner = document.getElementById('privacy-consent-banner');
-    console.log('Banner element on load:', banner);
-    
-    var consentValue = localStorage.getItem('analytics-consent');
-    console.log('Current analytics-consent value:', consentValue);
-    
-    // Update debug info
-    document.getElementById('banner-status').textContent = banner ? 'Banner found' : 'Banner not found';
-    document.getElementById('localstorage-status').textContent = 'Consent: ' + (consentValue || 'null');
-    
-    // For testing: force show banner (remove this line after testing)
-    localStorage.removeItem('analytics-consent');
-    
-    if (localStorage.getItem('analytics-consent') === null) {
-      console.log('Showing privacy banner');
-      if (banner) {
-        banner.style.display = 'block';
-        console.log('Banner should now be visible');
-        document.getElementById('banner-status').textContent = 'Banner visible';
-      } else {
-        console.log('Banner element not found');
-        document.getElementById('banner-status').textContent = 'Banner element not found';
-      }
-    } else {
-      console.log('User has already made a choice');
-      document.getElementById('banner-status').textContent = 'User already made choice';
-    }
-  });
-
-  // Test function to check if banner exists
-  function testBanner() {
-    var banner = document.getElementById('privacy-consent-banner');
-    alert('Banner element: ' + (banner ? 'Found' : 'Not found'));
-    console.log('Banner test result:', banner);
-  }
-</script> 
+<!-- Simple Debug Info -->
+<div id="debug-info" style="position: fixed; top: 50px; right: 10px; z-index: 100000; padding: 10px; background: yellow; color: black; border: 1px solid black; font-size: 12px; max-width: 200px;">
+  <strong>Debug:</strong><br>
+  <span id="banner-status">Loading...</span><br>
+  <span id="localstorage-status">Loading...</span>
+</div> 
