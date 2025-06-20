@@ -24,6 +24,8 @@ layout: compress
     {{ scss_sheet | scssify }}
     </style>
 
+    {% include analytics-google.html %}
+
 </head>
 <body>
 
@@ -44,8 +46,6 @@ layout: compress
 
     {% include icons.html %}
 
-    {% include analytics-google.html %}
-    
     {% include privacy-consent.html %}
 
     <!-- Privacy Consent Script - Load after DOM elements -->
