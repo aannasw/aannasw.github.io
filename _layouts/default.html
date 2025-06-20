@@ -24,6 +24,48 @@ layout: compress
     {{ scss_sheet | scssify }}
     </style>
 
+    <!-- Privacy Consent Script - Load early -->
+    <script>
+      // Basic privacy consent functionality
+      function setAnalyticsConsent(consent) {
+        localStorage.setItem('analytics-consent', consent);
+        var banner = document.getElementById('privacy-consent-banner');
+        if (banner) {
+          banner.style.display = 'none';
+        }
+        console.log('Analytics consent set to:', consent);
+      }
+
+      function showPrivacyBanner() {
+        var banner = document.getElementById('privacy-consent-banner');
+        if (banner) {
+          banner.style.display = 'block';
+          console.log('Banner shown manually');
+        } else {
+          console.log('Banner element not found');
+        }
+      }
+
+      // Initialize when DOM is ready
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('Privacy consent DOMContentLoaded fired');
+        
+        // Update debug info
+        var bannerStatus = document.getElementById('banner-status');
+        var localStorageStatus = document.getElementById('localstorage-status');
+        
+        if (bannerStatus) {
+          var banner = document.getElementById('privacy-consent-banner');
+          bannerStatus.textContent = banner ? 'Banner found' : 'Banner not found';
+        }
+        
+        if (localStorageStatus) {
+          var consent = localStorage.getItem('analytics-consent');
+          localStorageStatus.textContent = 'Consent: ' + (consent || 'null');
+        }
+      });
+    </script>
+
 </head>
 <body>
 

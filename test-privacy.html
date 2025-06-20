@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Privacy Banner Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-banner { 
+            position: fixed; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+            background: rgba(0, 0, 0, 0.95); 
+            color: white; 
+            z-index: 9999; 
+            padding: 1rem; 
+        }
+        .test-button { 
+            position: fixed; 
+            top: 10px; 
+            right: 10px; 
+            z-index: 10000; 
+            padding: 10px; 
+            background: red; 
+            color: white; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+        }
+        .debug-panel { 
+            position: fixed; 
+            top: 50px; 
+            right: 10px; 
+            z-index: 10000; 
+            padding: 10px; 
+            background: yellow; 
+            color: black; 
+            border: 1px solid black; 
+            font-size: 12px; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Privacy Banner Test Page</h1>
+    <p>This is a test page to verify the privacy banner functionality.</p>
+    
+    <!-- Privacy Banner -->
+    <div id="privacy-consent-banner" class="test-banner" style="display: block;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
+            <p style="margin: 0; flex: 1;">
+                We use cookies and similar technologies to analyze site traffic. 
+                <a href="#" style="color: #4b0082;">Learn more</a>
+            </p>
+            <div style="display: flex; gap: 0.5rem;">
+                <button onclick="setConsent(false)" style="padding: 0.5rem 1rem; background: transparent; color: white; border: 1px solid #666; border-radius: 4px; cursor: pointer;">
+                    Decline
+                </button>
+                <button onclick="setConsent(true)" style="padding: 0.5rem 1rem; background: #4b0082; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                    Accept
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test Button -->
+    <button onclick="showBanner()" class="test-button">Show Banner</button>
+
+    <!-- Debug Panel -->
+    <div class="debug-panel">
+        <strong>Debug Info:</strong><br>
+        <span id="banner-status">Checking...</span><br>
+        <span id="localstorage-status">Checking...</span>
+    </div>
+
+    <script>
+        function setConsent(consent) {
+            localStorage.setItem('analytics-consent', consent);
+            var banner = document.getElementById('privacy-consent-banner');
+            if (banner) {
+                banner.style.display = 'none';
+            }
+            console.log('Consent set to:', consent);
+        }
+
+        function showBanner() {
+            var banner = document.getElementById('privacy-consent-banner');
+            if (banner) {
+                banner.style.display = 'block';
+                console.log('Banner shown');
+            } else {
+                console.log('Banner not found');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Test page loaded');
+            
+            var banner = document.getElementById('privacy-consent-banner');
+            var consent = localStorage.getItem('analytics-consent');
+            
+            document.getElementById('banner-status').textContent = banner ? 'Banner found' : 'Banner not found';
+            document.getElementById('localstorage-status').textContent = 'Consent: ' + (consent || 'null');
+            
+            console.log('Banner element:', banner);
+            console.log('Consent value:', consent);
+        });
+    </script>
+</body>
+</html> 
