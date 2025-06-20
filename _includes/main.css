@@ -1255,3 +1255,88 @@ figure {
 	height: 250px;
 	width: 250px;
 }
+
+/* Privacy Consent Banner Styles */
+.privacy-consent-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  color: white;
+  z-index: 9999;
+  padding: 1rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.privacy-consent-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.privacy-consent-content p {
+  margin: 0;
+  flex: 1;
+  min-width: 300px;
+  line-height: 1.5;
+}
+
+.privacy-consent-content a {
+  color: #4b0082;
+  text-decoration: underline;
+}
+
+.privacy-consent-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.privacy-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.privacy-btn-decline {
+  background: transparent;
+  color: white;
+  border: 1px solid #666;
+}
+
+.privacy-btn-decline:hover {
+  background: #333;
+}
+
+.privacy-btn-accept {
+  background: #4b0082;
+  color: white;
+}
+
+.privacy-btn-accept:hover {
+  background: #5a1a91;
+}
+
+@media only screen and (max-width: 600px) {
+  .privacy-consent-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .privacy-consent-content p {
+    min-width: auto;
+  }
+  
+  .privacy-consent-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+}

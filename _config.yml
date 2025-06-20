@@ -19,7 +19,7 @@ markdown: kramdown
 highlighter: rouge
 
 # To enable google analytics, supply your token below
-analytics-google: 'UA-74313908-1'
+analytics-google: 'G-V3FYQFN4Q5'
 
 # if you don't want comments in your posts, set to false
 disqus: artiannaswamy

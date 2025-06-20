@@ -1,0 +1,30 @@
+<!-- Privacy Consent Banner -->
+<div id="privacy-consent-banner" class="privacy-consent-banner" style="display: none;">
+  <div class="privacy-consent-content">
+    <p>
+      We use cookies and similar technologies to analyze site traffic and personalize content. 
+      By clicking "Accept", you consent to our use of cookies for analytics purposes. 
+      <a href="/privacy-policy" target="_blank">Learn more</a>
+    </p>
+    <div class="privacy-consent-buttons">
+      <button onclick="setAnalyticsConsent(false)" class="privacy-btn privacy-btn-decline">
+        Decline
+      </button>
+      <button onclick="setAnalyticsConsent(true)" class="privacy-btn privacy-btn-accept">
+        Accept
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Show consent banner if user hasn't made a choice yet
+  document.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem('analytics-consent') === null) {
+      var banner = document.getElementById('privacy-consent-banner');
+      if (banner) {
+        banner.style.display = 'block';
+      }
+    }
+  });
+</script> 
