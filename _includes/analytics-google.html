@@ -1,45 +1,24 @@
 <!-- Google Analytics 4 (gtag.js) - Privacy Compliant -->
 <script>
-  // Check if user has consented to analytics
-  function hasAnalyticsConsent() {
-    return localStorage.getItem('analytics-consent') === 'true';
-  }
-
-  // Load Google Analytics only after consent
-  function loadGoogleAnalytics() {
-    if (hasAnalyticsConsent()) {
-      // Load gtag.js
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id={{ site.analytics-google }}';
-      document.head.appendChild(script);
-
-      // Initialize GA4
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '{{ site.analytics-google }}', {
-        'anonymize_ip': true,
-        'cookie_flags': 'SameSite=None;Secure'
-      });
+  (function() {
+    // Check if user has consented to analytics
+    if (localStorage.getItem('analytics-consent') !== 'true') {
+      return;
     }
-  }
 
-  // Set consent and load analytics
-  function setAnalyticsConsent(consent) {
-    localStorage.setItem('analytics-consent', consent);
-    if (consent) {
-      loadGoogleAnalytics();
-    }
-    // Hide consent banner
-    var banner = document.getElementById('privacy-consent-banner');
-    if (banner) {
-      banner.style.display = 'none';
-    }
-  }
+    // Load gtag.js
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id={{ site.analytics-google }}';
+    document.head.appendChild(script);
 
-  // Load analytics on page load if already consented
-  document.addEventListener('DOMContentLoaded', function() {
-    loadGoogleAnalytics();
-  });
+    // Initialize GA4
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.analytics-google }}', {
+      'anonymize_ip': true,
+      'cookie_flags': 'SameSite=None;Secure'
+    });
+  })();
 </script>
