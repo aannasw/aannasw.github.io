@@ -24,7 +24,31 @@ layout: compress
     {{ scss_sheet | scssify }}
     </style>
 
-    <!-- Privacy Consent Script - Load early -->
+</head>
+<body>
+
+    <div class="wrapper-{% if site.width == "normal" %}normal{% elsif site.width == "large" %}large{% endif %}">
+        {% if page.tag %}
+            <div class="post">
+        {% else %}
+            {% if showHeader != true %}
+                <div class="page {{ page.title | downcase }}">
+            {% else %}
+                <div class="{{ page.title | downcase }}">
+            {% endif %}
+        {% endif %}
+
+            {{ content }}
+        </div>
+    </div>
+
+    {% include icons.html %}
+
+    {% include analytics-google.html %}
+    
+    {% include privacy-consent.html %}
+
+    <!-- Privacy Consent Script - Load after DOM elements -->
     <script>
       // Basic privacy consent functionality
       function setAnalyticsConsent(consent) {
@@ -63,7 +87,7 @@ layout: compress
           var localStorageStatus = document.getElementById('localstorage-status');
           
           console.log('banner-status element:', bannerStatus);
-          console.log('localstorage-status element:', localStorageStatus);
+          console.log('localStorage-status element:', localStorageStatus);
           
           if (bannerStatus) {
             var banner = document.getElementById('privacy-consent-banner');
@@ -80,7 +104,7 @@ layout: compress
             localStorageStatus.textContent = consentText;
             console.log('Updated localStorage status to:', consentText);
           } else {
-            console.log('localstorage-status element not found');
+            console.log('localStorage-status element not found');
           }
         } catch (e) {
           console.error('Error updating debug info:', e);
@@ -124,30 +148,6 @@ layout: compress
       // Make test function globally available
       window.testDebug = testDebug;
     </script>
-
-</head>
-<body>
-
-    <div class="wrapper-{% if site.width == "normal" %}normal{% elsif site.width == "large" %}large{% endif %}">
-        {% if page.tag %}
-            <div class="post">
-        {% else %}
-            {% if showHeader != true %}
-                <div class="page {{ page.title | downcase }}">
-            {% else %}
-                <div class="{{ page.title | downcase }}">
-            {% endif %}
-        {% endif %}
-
-            {{ content }}
-        </div>
-    </div>
-
-    {% include icons.html %}
-
-    {% include analytics-google.html %}
-    
-    {% include privacy-consent.html %}
 
 </body>
 </html>
