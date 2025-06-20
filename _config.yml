@@ -10,7 +10,7 @@ description: A blog about technology and stuff related
 external-image: false
 picture: 'assets/images/profile.jpg'
 
-url: https://aannasw.github.io
+url: https://www.artiannaswamy.com
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
@@ -94,6 +94,6 @@ gems:
   - jekyll-paginate
 
 jekyll-mentions:
-    base_url: https://aannasw.github.io
+    base_url: https://www.artiannaswamy.com
 
 exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, indigo-gh-pages.zip, Rakefile, screen-shot.png, travis.sh, tasks]
