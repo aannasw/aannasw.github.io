@@ -149,6 +149,25 @@ layout: compress
 
       // Make test function globally available
       window.testDebug = testDebug;
+      
+      // Also try to make it available immediately
+      try {
+        console.log('Setting up testDebug function...');
+        window.testDebug = testDebug;
+        console.log('testDebug function should now be available');
+        
+        // Test if it's accessible
+        if (typeof window.testDebug === 'function') {
+          console.log('testDebug function is accessible!');
+        } else {
+          console.log('testDebug function is NOT accessible');
+        }
+      } catch (e) {
+        console.error('Error setting up testDebug:', e);
+      }
+      
+      // Final test
+      console.log('Final check - window.testDebug:', typeof window.testDebug);
     </script>
 
 </body>
