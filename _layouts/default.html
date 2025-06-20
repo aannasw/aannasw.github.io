@@ -57,17 +57,30 @@ layout: compress
 
       function updateDebugInfo() {
         try {
+          console.log('updateDebugInfo function called');
+          
           var bannerStatus = document.getElementById('banner-status');
           var localStorageStatus = document.getElementById('localstorage-status');
           
+          console.log('banner-status element:', bannerStatus);
+          console.log('localstorage-status element:', localStorageStatus);
+          
           if (bannerStatus) {
             var banner = document.getElementById('privacy-consent-banner');
-            bannerStatus.textContent = banner ? 'Banner found' : 'Banner not found';
+            var status = banner ? 'Banner found' : 'Banner not found';
+            bannerStatus.textContent = status;
+            console.log('Updated banner status to:', status);
+          } else {
+            console.log('banner-status element not found');
           }
           
           if (localStorageStatus) {
             var consent = localStorage.getItem('analytics-consent');
-            localStorageStatus.textContent = 'Consent: ' + (consent || 'null');
+            var consentText = 'Consent: ' + (consent || 'null');
+            localStorageStatus.textContent = consentText;
+            console.log('Updated localStorage status to:', consentText);
+          } else {
+            console.log('localstorage-status element not found');
           }
         } catch (e) {
           console.error('Error updating debug info:', e);
@@ -99,6 +112,17 @@ layout: compress
         console.log('Timeout fallback executed');
         updateDebugInfo();
       }, 100);
+
+      // Test function that can be called manually
+      function testDebug() {
+        console.log('Manual test function called');
+        console.log('All elements with banner-status ID:', document.querySelectorAll('#banner-status'));
+        console.log('All elements with localStorage-status ID:', document.querySelectorAll('#localstorage-status'));
+        updateDebugInfo();
+      }
+
+      // Make test function globally available
+      window.testDebug = testDebug;
     </script>
 
 </head>
