@@ -28,42 +28,77 @@ layout: compress
     <script>
       // Basic privacy consent functionality
       function setAnalyticsConsent(consent) {
-        localStorage.setItem('analytics-consent', consent);
-        var banner = document.getElementById('privacy-consent-banner');
-        if (banner) {
-          banner.style.display = 'none';
+        try {
+          localStorage.setItem('analytics-consent', consent);
+          var banner = document.getElementById('privacy-consent-banner');
+          if (banner) {
+            banner.style.display = 'none';
+          }
+          console.log('Analytics consent set to:', consent);
+        } catch (e) {
+          console.error('Error setting analytics consent:', e);
         }
-        console.log('Analytics consent set to:', consent);
       }
 
       function showPrivacyBanner() {
-        var banner = document.getElementById('privacy-consent-banner');
-        if (banner) {
-          banner.style.display = 'block';
-          console.log('Banner shown manually');
-        } else {
-          console.log('Banner element not found');
+        try {
+          var banner = document.getElementById('privacy-consent-banner');
+          if (banner) {
+            banner.style.display = 'block';
+            console.log('Banner shown manually');
+            updateDebugInfo();
+          } else {
+            console.log('Banner element not found');
+          }
+        } catch (e) {
+          console.error('Error showing banner:', e);
+        }
+      }
+
+      function updateDebugInfo() {
+        try {
+          var bannerStatus = document.getElementById('banner-status');
+          var localStorageStatus = document.getElementById('localstorage-status');
+          
+          if (bannerStatus) {
+            var banner = document.getElementById('privacy-consent-banner');
+            bannerStatus.textContent = banner ? 'Banner found' : 'Banner not found';
+          }
+          
+          if (localStorageStatus) {
+            var consent = localStorage.getItem('analytics-consent');
+            localStorageStatus.textContent = 'Consent: ' + (consent || 'null');
+          }
+        } catch (e) {
+          console.error('Error updating debug info:', e);
         }
       }
 
       // Initialize when DOM is ready
-      document.addEventListener('DOMContentLoaded', function() {
-        console.log('Privacy consent DOMContentLoaded fired');
-        
-        // Update debug info
-        var bannerStatus = document.getElementById('banner-status');
-        var localStorageStatus = document.getElementById('localstorage-status');
-        
-        if (bannerStatus) {
-          var banner = document.getElementById('privacy-consent-banner');
-          bannerStatus.textContent = banner ? 'Banner found' : 'Banner not found';
-        }
-        
-        if (localStorageStatus) {
-          var consent = localStorage.getItem('analytics-consent');
-          localStorageStatus.textContent = 'Consent: ' + (consent || 'null');
-        }
+      function initPrivacyConsent() {
+        console.log('Privacy consent initialization started');
+        updateDebugInfo();
+        console.log('Debug info updated');
+      }
+
+      // Try multiple ways to initialize
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initPrivacyConsent);
+      } else {
+        initPrivacyConsent();
+      }
+
+      // Also try on window load as backup
+      window.addEventListener('load', function() {
+        console.log('Window load event fired');
+        updateDebugInfo();
       });
+
+      // Immediate execution as fallback
+      setTimeout(function() {
+        console.log('Timeout fallback executed');
+        updateDebugInfo();
+      }, 100);
     </script>
 
 </head>
